@@ -1470,7 +1470,7 @@
     }
 
     .proj-card {
-      padding: 26px;
+      padding: 12px;
       height: 100%;
       display: flex;
       flex-direction: column
@@ -1503,7 +1503,7 @@
     .proj-hdr {
       display: flex;
       align-items: center;
-      margin-bottom: 14px
+      margin-bottom: 8px
     }
 
     .proj-num {
@@ -1528,7 +1528,7 @@
 
     .proj-links {
       display: flex;
-      gap: 8px
+      gap: 4px
     }
 
     .plink {
@@ -1543,31 +1543,31 @@
     }
 
     .proj-ico {
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       color: var(--cyan);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       filter: drop-shadow(0 0 8px rgba(0, 234, 255, .5))
     }
 
     .proj-title {
       font-family: var(--fH);
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: var(--white);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: .5px
     }
 
     .proj-desc {
       color: var(--dim);
-      font-size: .82rem;
-      line-height: 1.7;
-      margin-bottom: 12px;
+      font-size: .72rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
       flex: 1
     }
 
     .proj-meta {
-      font-size: 10px;
-      margin-bottom: 5px;
+      font-size: 9px;
+      margin-bottom: 4px;
       color: var(--muted)
     }
 
@@ -1590,8 +1590,8 @@
     .proj-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
-      margin: 12px 0 7px
+      gap: 4px;
+      margin: 8px 0 4px
     }
 
     .ptag {
@@ -1600,7 +1600,7 @@
       color: var(--cyan);
       font-size: 8px;
       letter-spacing: .5px;
-      padding: 2px 8px;
+      padding: 1px 6px;
       border-radius: 3px
     }
 
@@ -1620,7 +1620,7 @@
     .pbtn {
       flex: 1;
       text-align: center;
-      padding: 8px;
+      padding: 6px;
       border-radius: 6px;
       font-size: 10px;
       font-weight: 600;
@@ -1649,10 +1649,10 @@
     .proj-img-wrap {
       position: relative;
       width: 100%;
-      height: 160px;
+      height: 90px;
       border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       border: 1px solid var(--borderS);
       background: rgba(10, 15, 30, .9);
     }
@@ -3033,7 +3033,7 @@
 
     .h-name {
       font-family: var(--fH);
-      font-size: clamp(1.4rem, 3.8vw, 3.2rem);
+      font-size: clamp(1.2rem, 3vw, 2.5rem);
       font-weight: 900;
       letter-spacing: 3px;
       line-height: 1.2;
@@ -3540,7 +3540,7 @@
       }
     }
 
-    /* Samurai Katana Unsheathing Phase */
+
     #intro-gate {
       position: absolute;
       inset: 0;
@@ -3553,51 +3553,79 @@
       overflow: hidden;
     }
 
-    .katana-container {
+    .gate-door {
+      flex: 1;
+      background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+      border: 1px solid rgba(0, 234, 255, 0.2);
       position: relative;
-      width: 100%;
-      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: rotate(-10deg);
-    }
-
-    /* The Sheath (Scabbard) */
-    .gate-left {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: clamp(300px, 40vw, 600px);
-      width: auto;
-      object-fit: contain;
-      z-index: 5;
-      mix-blend-mode: lighten;
-      transition: transform 1.5s cubic-bezier(0.8, 0, 0.2, 1);
-    }
-
-    /* The Blade and Handle (Sword) */
-    .gate-right {
-      position: absolute;
-      top: 50%;
-      left: 52%;
-      /* Slightly offset right so the blade sits deep inside */
-      transform: translate(-50%, -50%);
-      height: clamp(300px, 40vw, 600px);
-      width: auto;
-      object-fit: contain;
-      z-index: 4;
-      mix-blend-mode: lighten;
+      overflow: hidden;
       transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
     }
 
-    .gate-open .gate-left {
-      transform: translate(-200%, -50%);
+    .gate-door::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      border: 2px solid rgba(0, 234, 255, 0.3);
+      background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 0, 0, 0.2) 40px, rgba(0, 0, 0, 0.2) 45px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0, 0, 0, 0.2) 40px, rgba(0, 0, 0, 0.2) 45px);
     }
 
-    .gate-open .gate-right {
-      transform: translate(100%, -50%);
+    .gate-left {
+      border-right: 4px solid #00eaff;
+      box-shadow: inset -15px 0 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .gate-right {
+      border-left: 4px solid #00eaff;
+      box-shadow: inset 15px 0 30px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Neuromancer Lock Mechanism */
+    .gate-lock {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      z-index: 5;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.5s, transform 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lock-ring {
+      position: absolute;
+      inset: 0;
+      border: 4px dashed #00eaff;
+      border-radius: 50%;
+      animation: spinLock 10s linear infinite;
+    }
+
+    .lock-core {
+      position: absolute;
+      inset: 20px;
+      background: #0f0f1a;
+      border: 2px solid #00eaff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scanner-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #00eaff;
+      box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+      animation: scanLine 2s ease-in-out infinite;
     }
 
     .gate-text {
@@ -3606,32 +3634,49 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: var(--fM);
-      font-size: 1.5rem;
-      letter-spacing: 12px;
-      color: #d4af37;
+      font-size: 1.2rem;
+      letter-spacing: 8px;
+      color: #ff3333;
+      /* Locked state */
       z-index: 4;
       background: rgba(0, 0, 0, 0.8);
-      padding: 12px 35px;
-      border: 1px solid #d4af37;
+      padding: 10px 25px;
+      border: 1px solid #ff3333;
       border-radius: 4px;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-      opacity: 1;
-      transition: opacity .3s,
-        color .3s,
-        border-color .3s,
-        box-shadow .3s;
+      box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
+      transition: opacity .3s, color .3s, border-color .3s, box-shadow .3s;
     }
 
     .gate-open .gate-left {
-      transform: translateX(-100%)
+      transform: translateX(-100%);
     }
 
     .gate-open .gate-right {
-      transform: translateX(100%)
+      transform: translateX(100%);
     }
 
     .gate-open .gate-text {
-      opacity: 0
+      opacity: 0;
+    }
+
+    @keyframes spinLock {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scanLine {
+      0% {
+        top: -10%;
+      }
+
+      50% {
+        top: 110%;
+      }
+
+      100% {
+        top: -10%;
+      }
     }
 
     /* Slideshow Phase */
@@ -3668,7 +3713,7 @@
       position: absolute;
       width: 150vw;
       height: 150vh;
-      background: radial-gradient(ellipse at center, rgba(0, 85, 255, 0.25) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(0, 150, 255, 0.25) 0%, transparent 70%);
       opacity: 0;
       z-index: 1;
       filter: contrast(1.5);
@@ -3717,32 +3762,40 @@
 
     .cine-first {
       font-family: var(--fH);
-      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-size: clamp(1.8rem, 6vw, 4rem);
       font-weight: 700;
       letter-spacing: clamp(10px, 2vw, 20px);
       color: #ebfaff;
-      text-shadow: 0 0 25px rgba(0, 234, 255, 0.9), 0 0 45px rgba(0, 234, 255, 0.4);
+      text-shadow:
+        0 1px 0 #1e52ba,
+        0 2px 0 #1e52ba,
+        0 3px 0 #1e52ba,
+        0 4px 0 #1e52ba,
+        0 5px 0 #1e52ba,
+        0 6px 1px rgba(0, 0, 0, .1),
+        0 0 15px rgba(0, 234, 255, 1),
+        0 0 45px rgba(0, 150, 255, 0.6);
       text-transform: uppercase;
       line-height: 1;
     }
 
     .cine-last {
       font-family: var(--fH);
-      font-size: clamp(3rem, 9.5vw, 7rem);
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
       font-weight: 800;
       letter-spacing: clamp(15px, 2.5vw, 25px);
       background: linear-gradient(180deg, #9ae2ff 0%, #1e52ba 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.8));
+      filter: drop-shadow(0 2px 0px #1e52ba) drop-shadow(0 4px 0px #113a8c) drop-shadow(0 0 25px rgba(0, 150, 255, 0.8));
       text-transform: uppercase;
       line-height: 1.1;
     }
 
     .cine-profile {
-      height: clamp(150px, 20vw, 300px);
-      width: clamp(120px, 16vw, 240px);
+      height: clamp(100px, 20vw, 300px);
+      width: clamp(110px, 16vw, 200px);
       object-fit: cover;
       border-radius: 16px;
       border: 2px solid rgba(255, 255, 255, 0.2);
@@ -3894,14 +3947,20 @@
     <div class="cine-smoke gate-active"></div>
     <canvas id="cine-particles" class="cine-particles gate-active"></canvas>
 
-    <!-- Phase 1: Samurai Katana Unsheathing -->
+    <!-- Phase 1: Heavy Vault/Locker Gate -->
     <div id="intro-gate">
-      <div class="katana-container">
-        <!-- Scabbard Image -->
-        <img class="gate-left" src="assets/images/intro/dragon_katana_sheath.png" alt="Dragon Katana Scabbard" />
-        <!-- Blade Image -->
-        <img class="gate-right" src="assets/images/intro/dragon_katana_blade.png" alt="Dragon Katana Blade" />
+      <div class="gate-door gate-left">
       </div>
+      <div class="gate-door gate-right">
+      </div>
+      <!-- Center Lock Mechanism -->
+      <div class="gate-lock">
+        <div class="lock-ring"></div>
+        <div class="lock-core">
+          <div class="scanner-line"></div>
+        </div>
+      </div>
+      <div class="gate-text">SYSTEM LOCKED</div>
     </div>
 
 
@@ -4052,13 +4111,15 @@
         <div class="about-bio-wrap reveal right">
           <div class="card" style="padding:32px">
             <span class="code-tag">&lt;about&gt;</span>
-            <p class="about-bio">I am Mohammed Riyaz, a <span class="tglow">Full-Stack Developer</span> specializing in
-              AI-driven applications and secure backend systems. I am an ardent builder of solutions at the intersection
-              of <span class="tglow">Web Development and Artificial Intelligence</span>. I design responsive,
-              user-centric e-commerce platforms, dynamic web apps, and intelligent AI-driven systems.</p>
-            <p class="about-bio">My work spans from building <span class="tglow">facial recognition systems</span> and
-              smart medical inventory tools to crafting clean, mobile-first UI experiences — always with a focus on
-              <span class="tglow">real-world impact and engineering quality</span>.
+            <p class="about-bio">I don't just write code; I architect intelligent systems that bridge the gap between
+              human needs and machine logic. My playground is the intersection of <span class="tglow">Full-Stack
+                Development and Artificial Intelligence</span>, where I transform abstract data into responsive,
+              high-impact digital experiences.</p>
+            <p class="about-bio">From deploying <span class="tglow">AI-powered facial recognition</span> to optimizing
+              <span class="tglow">medical inventory workflows</span> with Python and DSA, my focus is always on
+              engineering
+              precision. I believe tech should be intuitive, secure, and above all, solve the silent frictions in our
+              daily lives.
             </p>
             <div class="ainfo-grid">
               <div class="ainfo"><i class="fas fa-graduation-cap"></i>
@@ -4455,7 +4516,7 @@
         <div class="card proj-card holo-card reveal" style="transition-delay:.2s">
           <div class="proj-glow blue"></div>
           <div class="proj-img-wrap">
-            <img src="assets/images/proj_freshsafe.jpg" alt="Fresh & Safe" class="proj-img"
+            <img src="assets/images/fresh_safe.jpg" alt="Fresh & Safe" class="proj-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="proj-img-ph" style="color:var(--blue)"><i class="fas fa-shopping-cart"></i><span>Add
                 proj_freshsafe.jpg</span></div>
@@ -4597,13 +4658,13 @@
           <div class="cert-title">Privacy and Security in Online Social Media</div>
           <span class="cert-org">NPTEL</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Jul 2025 – Oct 2025</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\cert_nptel.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/cert_nptel.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="card cert-card holo-card reveal" style="transition-delay:.1s">
           <div class="cert-img-wrap">
-            <img src="assets/images/cert_ibm_web.jpg" alt="IBM Web Dev Cert" class="cert-img"
+            <img src="assets/images/WEB DEV.jpg" alt="IBM Web Dev Cert" class="cert-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="cert-img-ph" style="color:var(--blue)"><i class="fas fa-globe"></i></div>
             <div class="cert-img-overlay"
@@ -4613,13 +4674,13 @@
           <div class="cert-title">Web Development with HTML5, CSS3 &amp; JavaScript</div>
           <span class="cert-org">IBM</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Apr 2024 – Jun 2024</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\WEB DEV.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/WEB DEV.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="card cert-card holo-card reveal" style="transition-delay:.2s">
           <div class="cert-img-wrap">
-            <img src="assets/images/cert_ibm_python.jpg" alt="IBM Python Cert" class="cert-img"
+            <img src="assets/images/Python Basic.jpg" alt="IBM Python Cert" class="cert-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="cert-img-ph" style="color:var(--purple)"><i class="fab fa-python"></i></div>
             <div class="cert-img-overlay"
@@ -4629,13 +4690,13 @@
           <div class="cert-title">Python Basics for Data Science</div>
           <span class="cert-org">IBM</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Jan 2024 – Apr 2024</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\Python Basic.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/Python Basic.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="card cert-card holo-card reveal" style="transition-delay:.3s">
           <div class="cert-img-wrap">
-            <img src="assets/images/cert_dsa_lpu.jpg" alt="DSA LPU Cert" class="cert-img"
+            <img src="assets/images/DSA.jpg" alt="DSA LPU Cert" class="cert-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="cert-img-ph" style="color:var(--green)"><i class="fas fa-sitemap"></i></div>
             <div class="cert-img-overlay"
@@ -4645,13 +4706,13 @@
           <div class="cert-title">Data Structures &amp; Algorithms</div>
           <span class="cert-org">Lovely Professional University</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Aug 2024 – Dec 2024</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\DSA.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/DSA.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="card cert-card holo-card reveal" style="transition-delay:.4s">
           <div class="cert-img-wrap">
-            <img src="assets/images/cert_java_lpu.jpg" alt="Java LPU Cert" class="cert-img"
+            <img src="assets/images/Java.jpg" alt="Java LPU Cert" class="cert-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="cert-img-ph" style="color:var(--gold)"><i class="fab fa-java"></i></div>
             <div class="cert-img-overlay"
@@ -4661,13 +4722,13 @@
           <div class="cert-title">Java Programming</div>
           <span class="cert-org">Lovely Professional University</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Jan 2025 – May 2025</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\Java.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/Java.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="card cert-card holo-card reveal" style="transition-delay:.5s">
           <div class="cert-img-wrap">
-            <img src="assets/images/cert_aws.jpg" alt="AWS Cert" class="cert-img"
+            <img src="assets/images/AWS.jpg" alt="AWS Cert" class="cert-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="cert-img-ph" style="color:var(--cyan)"><i class="fab fa-aws"></i></div>
             <div class="cert-img-overlay"></div>
@@ -4676,8 +4737,8 @@
           <div class="cert-title">Amazon Web Services (AWS) Certified 2022</div>
           <span class="cert-org">Infosys</span>
           <span class="cert-date"><i class="fas fa-calendar" style="margin-right:4px"></i>Mar 2024 – Apr 2024</span>
-          <a href="C:\Users\princ\OneDrive\Desktop\portfolio\assets\images\AWS.jpg" target="_blank"
-            class="cert-btn">View Cert <i class="fas fa-arrow-right"></i></a>
+          <a href="assets/images/AWS.jpg" target="_blank" class="cert-btn">View Cert <i
+              class="fas fa-arrow-right"></i></a>
         </div>
 
       </div>
@@ -4701,7 +4762,7 @@
   <section id="achievements">
     <div class="container">
       <div class="sec-head reveal"><span class="sec-tag">// HALL_OF_FAME.DAT</span>
-        <h2 class="sec-title">Achievements & <span class="ac">Honours</span></h2>
+        <h2 class="sec-title">Achievements</h2>
         <div class="sec-line"></div>
       </div>
       <div class="grid g2" style="max-width:840px;margin:0 auto">
@@ -4909,7 +4970,24 @@
 
       // Start sequence shortly after load
       setTimeout(() => {
-        // 1. Open Samurai Dojo Gate
+        // 1. Open Cyber Vault Gate
+        const gt = document.querySelector('.gate-text');
+        const sc = document.querySelector('.scanner-line');
+        const lr = document.querySelector('.lock-ring');
+        const lc = document.querySelector('.lock-core');
+        if (gt) {
+          gt.textContent = 'ACCESS GRANTED';
+          gt.style.color = '#00ffcc';
+          gt.style.borderColor = '#00ffcc';
+          gt.style.boxShadow = '0 0 20px rgba(0, 255, 204, 0.6)';
+        }
+        if (sc) {
+          sc.style.background = '#00ffcc';
+          sc.style.boxShadow = '0 0 10px #00ffcc, 0 0 20px #00ffcc';
+        }
+        if (lr) lr.style.borderColor = '#00ffcc';
+        if (lc) lc.style.borderColor = '#00ffcc';
+
         setTimeout(() => {
           gate.classList.add('gate-open');
         }, 600);
